@@ -1,0 +1,22 @@
+.buzzer-container {
+  margin-top: 2vh;
+  text-align: center;
+  height: 80vh;
+}
+
+.buzzer__last-user {
+  font-size: 20px;
+}
+
+.buzzer {
+  width: 60vw;
+}
+
+.buzzer:hover {
+  position: realative;
+  top: 100px;
+}
+
+.buzzer__timer {
+  font-size: 20px;
+}

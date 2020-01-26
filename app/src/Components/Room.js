@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { Layout, PageHeader, Button } from "antd";
+import { Layout, PageHeader } from "antd";
 import Chat from "./Chat";
 import Buzzer from "./Buzzer";
 
 import "./css/Room.css";
-
-const { Content } = Layout;
 
 class Room extends Component {
   render() {
@@ -21,7 +19,7 @@ class Room extends Component {
           onBack={() => null}
           title="100KLAY의 주인은?"
         ></PageHeader>
-        <div style={{ backgroundColor: "#b2c7d9" }}>
+        <div className="Content" style={{ backgroundColor: "#b2c7d9" }}>
           <Buzzer />
           <Chat />
         </div>
