@@ -3,8 +3,8 @@
   height: 90vw;
   width: 94vw;
   background-color: white;
-  padding: 2vw;
   margin: 2vw;
+  padding: 2vw;
   border-radius: 5px;
   position: relative;
   display: inline-block;
@@ -17,9 +17,9 @@
 
 .buzzer__image {
   position: absolute;
-  top: 16.5%;
-  left: 20.6%;
-  width: 55vw;
+  top: 18.5%;
+  left: 23.6%;
+  width: 50vw;
 }
 
 .buzzer__progress-bar {
@@ -35,18 +35,18 @@
 
 @keyframes bounce {
   0% {
-    width: 55vw;
+    width: 50vw;
     height: 25vh;
     transform: translateY(0vh);
   }
   50% {
     transform: translateY(8vh);
-    width: 55vw;
+    width: 50vw;
     height: 15vh;
   }
   100% {
     transform: translateY(0vh);
-    width: 55vw;
+    width: 50vw;
     height: 25vh;
   }
 }

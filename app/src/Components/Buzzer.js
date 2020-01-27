@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Progress } from "antd";
-import buzzerImage from "../monsterBall.png";
+import buzzerImage from "../images/monsterBall.png";
+import coinImage from "../images/shiba.png";
 import "./css/Buzzer.css";
 
 class Buzzer extends Component {
@@ -37,7 +38,7 @@ class Buzzer extends Component {
         />
         <img
           className="buzzer__image"
-          src={buzzerImage}
+          src={this.getImage()}
           alt="buzzer"
           onClick={this.resetProgress}
         />
@@ -77,6 +78,14 @@ class Buzzer extends Component {
         timeLeft: this.state.timeLimit * 0.8,
         progress: 0
       });
+    }
+  };
+
+  getImage = () => {
+    if (this.state.open) {
+      return buzzerImage;
+    } else {
+      return coinImage;
     }
   };
 

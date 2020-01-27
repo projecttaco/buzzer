@@ -1,7 +1,9 @@
-.chat-container {
-  height: 48vh;
-  width: 100vw;
-  background-color: #b2c7d9;
+.chat__screen {
+  margin: 2vw;
+  padding: 2vw;
+  height: 90vw;
+  width: 94vw;
+  display: inline-block;
 }
 
 .incomming-message {
@@ -24,4 +26,19 @@
   background-color: white;
   box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
     0 8px 0px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.chat__write-column:nth-child(2) {
+  width: 80%;
+}
+
+.chat__write-column input {
+  padding: 0px 10px;
+  width: 100%;
+  border: none;
+  font-size: 14px;
+}
+
+.chat__write-column input:focus {
+  outline: none;
 }
