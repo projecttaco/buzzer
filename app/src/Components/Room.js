@@ -19,7 +19,7 @@ class Room extends Component {
           onBack={() => null}
           title="100KLAY의 주인은?"
         ></PageHeader>
-        <div className="Content" style={{ backgroundColor: "#b2c7d9" }}>
+        <div className="room-content">
           <Buzzer />
           <Chat />
         </div>

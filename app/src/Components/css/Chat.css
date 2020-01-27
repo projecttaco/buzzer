@@ -1,0 +1,27 @@
+.chat-container {
+  height: 48vh;
+  width: 100vw;
+  background-color: #b2c7d9;
+}
+
+.incomming-message {
+}
+
+.sent-message {
+}
+
+.chat__write {
+  position: fixed;
+  bottom: 0vh;
+  width: 100%;
+  /* margin: 0 auto; */
+  padding: 10px 12px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: white;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 0px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}

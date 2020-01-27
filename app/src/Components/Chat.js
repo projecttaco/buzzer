@@ -1,8 +1,20 @@
 import React, { Component } from "react";
+import { Icon } from "antd";
 import "./css/Chat.css";
+
 class Chat extends Component {
   render() {
-    return <div>Chat</div>;
+    return (
+      <div className="chat-container">
+        <div className="chat__write">
+          <div className="chat__write-column">
+            <Icon type="plus-square" />
+          </div>
+          <div className="chat__write-column"></div>
+          <div className="chat__write-column"></div>
+        </div>
+      </div>
+    );
   }
 }
 
