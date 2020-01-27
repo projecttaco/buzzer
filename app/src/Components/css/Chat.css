@@ -1,7 +1,14 @@
+.chat-container {
+  background-color: #b2c7d9;
+}
+
 .chat__screen {
+  /* position: fixed; */
+  top: 150vw;
+  left: 0vw;
   margin: 2vw;
   padding: 2vw;
-  height: 90vw;
+  height: 900vw;
   width: 94vw;
   display: inline-block;
 }

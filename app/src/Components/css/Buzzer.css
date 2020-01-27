@@ -6,7 +6,9 @@
   margin: 2vw;
   padding: 2vw;
   border-radius: 5px;
-  position: relative;
+  position: fixed;
+  top: 13vw;
+  left: 1vw;
   display: inline-block;
 }
 
@@ -17,8 +19,8 @@
 
 .buzzer__image {
   position: absolute;
-  top: 18.5%;
-  left: 23.6%;
+  top: 19%;
+  left: 23.3%;
   width: 50vw;
 }
 

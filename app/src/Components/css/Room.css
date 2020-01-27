@@ -1,4 +1,8 @@
-.room-content {
+.header {
+  position: fixed;
+}
+
+.room-container {
   background-color: #b2c7d9;
   text-align: center;
 }

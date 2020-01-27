@@ -6,7 +6,7 @@ class Chat extends Component {
   render() {
     return (
       <div className="chat-container">
-        <div className="chat__screen">아무나 눌러라~</div>
+        <div className="chat__screen"></div>
         <div className="chat__write">
           <div className="chat__write-column">
             <Icon type="plus-square" />
