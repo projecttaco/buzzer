@@ -9,9 +9,81 @@ class Chat extends Component {
       {
         sender: "someone",
         content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
+      },
+      {
+        sender: "someone",
+        content: "blahblah"
       }
     ]
   };
+
+  componentDidMount() {
+    let chatContainer = document.getElementsByClassName("chat-container")[0];
+    let chatScreen = document.getElementsByClassName("chat__screen")[0];
+    chatContainer.scrollTop =
+      chatScreen.scrollHeight - chatContainer.clientHeight;
+    console.log(chatContainer);
+  }
 
   render() {
     return (

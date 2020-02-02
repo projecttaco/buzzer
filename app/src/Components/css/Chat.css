@@ -1,5 +1,12 @@
 .chat-container {
   background-color: #b2c7d9;
+  display: block;
+  position: fixed;
+  top: 50vh;
+  left: 2hw;
+  width: 94hw;
+  height: 45vh;
+  overflow: scroll;
 }
 
 .chat__screen {
@@ -8,15 +15,9 @@
   left: 0vw;
   margin: 2vw;
   padding: 2vw;
-  height: 900vw;
+  height: 45vh;
   width: 94vw;
   display: inline-block;
-}
-
-.incomming-message {
-}
-
-.sent-message {
 }
 
 .chat__write {
