@@ -42,7 +42,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: "Room",
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} name="md-book" />
+            <TabBarIcon focused={focused} name="md-room" />
           )
         }}
       />
