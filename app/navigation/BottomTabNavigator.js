@@ -4,6 +4,7 @@ import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
 import LinksScreen from "../screens/LinksScreen";
 import RoomScreen from "../screens/RoomScreen";
+import Buzzer from "../components/Buzzer";
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = "Home";
@@ -42,7 +43,17 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: "Room",
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} name="md-room" />
+            <TabBarIcon focused={focused} name="ios-radio-button-on" />
+          )
+        }}
+      />
+      <BottomTab.Screen
+        name="Buzzer"
+        component={Buzzer}
+        options={{
+          title: "Buzzer",
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon focused={focused} name="ios-radio-button-on" />
           )
         }}
       />

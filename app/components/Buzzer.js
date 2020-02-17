@@ -12,7 +12,7 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { Card } from "react-native-elements";
 
-export default class RoomScreen extends React.Component {
+export default class Buzzer extends React.Component {
   state = {
     winner: "Kuyuhyeon Choi",
     clickCount: 0,
@@ -25,6 +25,7 @@ export default class RoomScreen extends React.Component {
   };
 
   componentDidMount() {
+    this.intervalId = setInterval(this._updateProgress, 10);
     this._moveY();
   }
 
@@ -72,21 +73,75 @@ export default class RoomScreen extends React.Component {
             </Animated.View>
           </Card>
         </TouchableOpacity>
-        <View style={styles.container}>
-          <ScrollView>
-            <Text>ChatScreen</Text>
-            <Image
-              source={{
-                uri:
-                  "https://facebook.github.io/react-native/img/tiny_logo.png",
-                width: 64,
-                height: 64
-              }}
-            />
-          </ScrollView>
-        </View>
+        <Text>{this._getTimer()}</Text>
       </LinearGradient>
     );
+  }
+
+  _renderLastUser() {
+    return "Kyuhyeon Choi";
+  }
+
+  _getProgress() {
+    return this.state.progress;
+  }
+
+  _updateProgress() {
+    if (this.state.open) {
+      if (this.state.progress < 100) {
+        this.setState({
+          timeLeft: this.state.timeLeft - 10,
+          progress: this.state.progress + 1000 / this.state.timeLimit
+        });
+      } else {
+        this.setState({ timeLeft: 0, open: false });
+      }
+      clearInterval(this.intervalID);
+    }
+  }
+
+  _resetProgress() {
+    if (this.state.open) {
+      this.setState({
+        clickCount: this.state.clickCount + 1,
+        timeLimit: this.state.timeLimit * 0.8,
+        timeLeft: this.state.timeLimit * 0.8,
+        progress: 0
+      });
+    }
+  }
+
+  _getImage() {
+    if (this.state.open) {
+      return buzzerImage;
+    } else {
+      return coinImage;
+    }
+  }
+
+  _getTimer() {
+    let timer = "00";
+    let hh, mm, ss, ms;
+    let milli = Math.round((this.state.timeLeft % 1000) / 10);
+    let s = Math.round((this.state.timeLeft / 1000) % 60);
+    let m = Math.round((this.state.timeLeft / (1000 * 60)) % 60);
+    let h = Math.round((this.state.timeLeft / (1000 * 60 * 60)) % 60);
+    if (h) {
+      hh = h >= 10 ? `${h}` : `0${h}`;
+      timer = hh;
+    }
+    if (m) {
+      mm = m >= 10 ? `${m}` : `0${m}`;
+      timer = timer + " : " + mm;
+    }
+    if (s) {
+      ss = s >= 10 ? `${s}` : `0${s}`;
+      timer = timer + " : " + ss;
+    }
+    ms = milli >= 10 ? `${milli}` : `0${milli}`;
+    timer = timer + " : " + ms;
+
+    return timer;
   }
 }
 
