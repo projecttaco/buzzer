@@ -19,30 +19,15 @@ export default class Buzzer extends React.Component {
     timeLimit: 30000,
     timeLeft: 30000,
     progress: 0,
-    open: true,
-    value: new Animated.Value(0),
-    position: new Animated.ValueXY({ x: 0, y: 0 })
+    open: true
   };
 
   componentDidMount() {
-    this.intervalId = setInterval(this._updateProgress, 10);
-    this._moveY();
+    this.intervalID = setInterval(this.updateProgress, 10);
   }
 
-  _moveY() {
-    Animated.spring(this.state.position, {
-      toValue: { x: 0, y: 50 },
-      friction: 2,
-      tension: 100
-    }).start();
-  }
-
-  _getStyle() {
-    return {
-      width: 250,
-      height: 350,
-      transform: [{ translateY: this.state.position.y }]
-    };
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
   }
 
   render() {
@@ -52,7 +37,11 @@ export default class Buzzer extends React.Component {
         style={styles.container}
       >
         <StatusBar barStyle="light-content" />
-        <TouchableOpacity style={{ backgroundColor: "transparent" }}>
+        <TouchableOpacity
+          style={{ backgroundColor: "transparent" }}
+          onPress={this.resetProgress}
+        >
+          <Text style={styles.lastUser}>{this.renderLastUser()}</Text>
           <Card
             containerStyle={{
               width: 250,
@@ -65,7 +54,7 @@ export default class Buzzer extends React.Component {
               borderColor: "rgba(255, 255, 255, 0.1)"
             }}
           >
-            <Animated.View style={this._getStyle()}>
+            <Animated.View>
               <Image
                 source={require("../assets/images/monsterBall.png")}
                 style={{ width: 250, height: 250 }}
@@ -73,20 +62,20 @@ export default class Buzzer extends React.Component {
             </Animated.View>
           </Card>
         </TouchableOpacity>
-        <Text>{this._getTimer()}</Text>
+        <Text>{this.getTimer()}</Text>
       </LinearGradient>
     );
   }
 
-  _renderLastUser() {
+  renderLastUser = () => {
     return "Kyuhyeon Choi";
-  }
+  };
 
-  _getProgress() {
+  getProgress = () => {
     return this.state.progress;
-  }
+  };
 
-  _updateProgress() {
+  updateProgress = () => {
     if (this.state.open) {
       if (this.state.progress < 100) {
         this.setState({
@@ -98,9 +87,9 @@ export default class Buzzer extends React.Component {
       }
       clearInterval(this.intervalID);
     }
-  }
+  };
 
-  _resetProgress() {
+  resetProgress = () => {
     if (this.state.open) {
       this.setState({
         clickCount: this.state.clickCount + 1,
@@ -109,17 +98,17 @@ export default class Buzzer extends React.Component {
         progress: 0
       });
     }
-  }
+  };
 
-  _getImage() {
+  getImage = () => {
     if (this.state.open) {
       return buzzerImage;
     } else {
       return coinImage;
     }
-  }
+  };
 
-  _getTimer() {
+  getTimer = () => {
     let timer = "00";
     let hh, mm, ss, ms;
     let milli = Math.round((this.state.timeLeft % 1000) / 10);
@@ -142,7 +131,7 @@ export default class Buzzer extends React.Component {
     timer = timer + " : " + ms;
 
     return timer;
-  }
+  };
 }
 
 const styles = StyleSheet.create({
@@ -152,5 +141,8 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center"
+  },
+  lastUser: {
+    textAlign: "center"
   }
 });
